@@ -1,7 +1,9 @@
 package com.ait.toolkit.libs.jquery.collapser.client;
 
+import com.ait.toolkit.core.client.JQueryUtil;
 import com.ait.toolkit.core.client.JsObject;
 import com.ait.toolkit.core.client.JsoHelper;
+import com.ait.toolkit.core.client.Util;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
@@ -15,6 +17,11 @@ public final class Collapser extends JsObject {
 
 	private Collapser() {
 
+	}
+
+	static {
+		JQueryUtil.inject();
+		Util.injectJs(CollapserResources.INSTANCE.lib());
 	}
 
 	public static Collapser createById(String targetId) {
@@ -46,8 +53,8 @@ public final class Collapser extends JsObject {
 	 * If the value is a string, then accepted values are next/prev/siblings. <br/>
 	 * This selects the element which is next/prev/sibling to the current one. <br/>
 	 */
-	public Collapser setTarget(String value) {
-		JsoHelper.setAttribute(config.getJsObj(), "target", value);
+	public Collapser setTarget(CollapserTarget value) {
+		JsoHelper.setAttribute(config.getJsObj(), "target", value.name().toLowerCase());
 		return this;
 	}
 
