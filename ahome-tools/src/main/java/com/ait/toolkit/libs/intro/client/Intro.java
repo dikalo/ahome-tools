@@ -1,9 +1,11 @@
 package com.ait.toolkit.libs.intro.client;
 
+import com.ait.toolkit.core.client.Function;
 import com.ait.toolkit.core.client.JsObject;
 import com.ait.toolkit.core.client.Util;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.Element;
+import com.google.gwt.user.client.ui.Widget;
 
 public final class Intro extends JsObject {
 
@@ -64,12 +66,20 @@ public final class Intro extends JsObject {
 		return this;
 	}
 
+	public Intro setIntro(Widget target, String value) {
+		return setIntro(target.getElement(), value);
+	}
+
 	/**
 	 * Optionally define a CSS class for tooltip
 	 */
 	public Intro setTooltipClass(Element element, String value) {
 		element.setAttribute("data-tooltipClass", value);
 		return this;
+	}
+
+	public Intro setTooltipClass(Widget target, String value) {
+		return setTooltipClass(target.getElement(), value);
 	}
 
 	/**
@@ -80,6 +90,10 @@ public final class Intro extends JsObject {
 		return this;
 	}
 
+	public Intro setHighlightClass(Widget target, String value) {
+		return setHighlightClass(target.getElement(), value);
+	}
+
 	/**
 	 * Optionally define a CSS class for tooltip
 	 */
@@ -88,12 +102,20 @@ public final class Intro extends JsObject {
 		return this;
 	}
 
+	public Intro setTooltipPosition(Widget target, TooltipPosition value) {
+		return setTooltipPosition(target.getElement(), value);
+	}
+
 	/**
 	 * Optionally define the number (priority) of step
 	 */
 	public Intro setStep(Element element, Integer value) {
 		element.setAttribute("data-step", value.toString());
 		return this;
+	}
+
+	public Intro setStep(Widget target, Integer value) {
+		return setStep(target.getElement(), value);
 	}
 
 	public native Intro setOptions(IntroOptions options)/*-{
@@ -106,6 +128,54 @@ public final class Intro extends JsObject {
 	public native void start()/*-{
 		var peer = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		peer.start();
+	}-*/;
+
+	public native void refresh()/*-{
+		var peer = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		peer.refresh();
+	}-*/;
+
+	public native Intro onComplete(Function callback)/*-{
+		var peer = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		peer.oncomplete(function() {
+			callback.@com.ait.toolkit.core.client.Function::execute()();
+		});
+		return this;
+	}-*/;
+
+	public native Intro onExit(Function callback)/*-{
+		var peer = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		peer.onexit(function() {
+			callback.@com.ait.toolkit.core.client.Function::execute()();
+		});
+		return this;
+	}-*/;
+
+	public native Intro onChange(IntroChangeHandler callback)/*-{
+		var peer = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		peer
+				.onchange(function(el) {
+					callback.@com.ait.toolkit.libs.intro.client.IntroChangeHandler::onEvent(Lcom/google/gwt/dom/client/Element;)(el);
+				});
+		return this;
+	}-*/;
+
+	public native Intro onBeforeChange(IntroChangeHandler callback)/*-{
+		var peer = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		peer
+				.onbeforechange(function(el) {
+					callback.@com.ait.toolkit.libs.intro.client.IntroChangeHandler::onEvent(Lcom/google/gwt/dom/client/Element;)(el);
+				});
+		return this;
+	}-*/;
+
+	public native Intro onAfterChange(IntroChangeHandler callback)/*-{
+		var peer = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		peer
+				.onafterchange(function(el) {
+					callback.@com.ait.toolkit.libs.intro.client.IntroChangeHandler::onEvent(Lcom/google/gwt/dom/client/Element;)(el);
+				});
+		return this;
 	}-*/;
 
 	private native JavaScriptObject getPeer()/*-{
