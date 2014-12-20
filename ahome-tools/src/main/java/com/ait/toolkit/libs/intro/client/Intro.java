@@ -9,7 +9,7 @@ import com.google.gwt.user.client.ui.Widget;
 
 public final class Intro extends JsObject {
 
-	private static final Intro INSTANCE = new Intro();
+	private static Intro INSTANCE = null;
 	private static boolean isInjected = false;
 
 	private static void inject() {
@@ -51,6 +51,10 @@ public final class Intro extends JsObject {
 	}
 
 	public static Intro get() {
+		inject();
+		if (INSTANCE == null) {
+			INSTANCE = new Intro();
+		}
 		return INSTANCE;
 	}
 

@@ -11,6 +11,13 @@ public class IntroOptions extends JsObject {
 		JsoHelper.setAttribute(jsObj, "steps", JsoHelper.createJavaScriptArray());
 	}
 
+	public IntroOptions addSteps(IntroStep... steps) {
+		for (IntroStep step : steps) {
+			_addStep(step.getJsObj());
+		}
+		return this;
+	}
+
 	public IntroOptions addStep(IntroStep step) {
 		_addStep(step.getJsObj());
 		return this;
@@ -103,7 +110,7 @@ public class IntroOptions extends JsObject {
 
 	private native void _addStep(JavaScriptObject step)/*-{
 		var peer = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		peers.steps.push(step);
+		peer.steps.push(step);
 	}-*/;
 
 }
