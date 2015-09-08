@@ -42,4 +42,16 @@ public class FavIcoConfig extends JsObject {
         JsoHelper.setAttribute( jsObj, "type", value.name().toLowerCase() );
     }
 
+    public void setBadgeFontStyle( BadgeFontStyle value ) {
+        JsoHelper.setAttribute( jsObj, "type", value.name().toLowerCase().replace( "style_", "" ) );
+    }
+
+    public void setBadgePosition( BadgePosition value ) {
+        JsoHelper.setAttribute( jsObj, "position", value.name().toLowerCase() );
+    }
+
+    public void setBadgeAnimation( BadgeAnimation value ) {
+        JsoHelper.setAttribute( jsObj, "animation", value.name().toLowerCase() );
+    }
+
 }

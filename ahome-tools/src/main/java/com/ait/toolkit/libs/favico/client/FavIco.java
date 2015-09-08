@@ -4,9 +4,12 @@ import com.ait.toolkit.core.client.JsObject;
 import com.ait.toolkit.core.client.Util;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.Element;
+import com.google.gwt.dom.client.Style.Position;
+import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.resources.client.ImageResource;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.Image;
+import com.google.gwt.user.client.ui.RootPanel;
 
 public final class FavIco extends JsObject {
 
@@ -31,9 +34,14 @@ public final class FavIco extends JsObject {
 		peer.badge(value);
     }-*/;
 
-    public void setImage( ImageResource imageResources ) {
-        Image image = new Image( imageResources );
+    public void setImage( ImageResource imageResource ) {
+        Image image = new Image( imageResource );
+        image.getElement().getStyle().setPosition( Position.ABSOLUTE );
+        image.getElement().getStyle().setLeft( -100000, Unit.PX );
+
+        RootPanel.get().add( image );
         setImage( image.getElement() );
+        RootPanel.get().remove( image );
     }
 
     public void setImage( String imageElementId ) {
