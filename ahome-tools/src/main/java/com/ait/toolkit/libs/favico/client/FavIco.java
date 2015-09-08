@@ -34,6 +34,11 @@ public final class FavIco extends JsObject {
 		peer.badge(value);
     }-*/;
 
+    public native void reset()/*-{
+		var peer = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		peer.reset();
+    }-*/;
+
     public void setImage( ImageResource imageResource ) {
         Image image = new Image( imageResource );
         image.getElement().getStyle().setPosition( Position.ABSOLUTE );
