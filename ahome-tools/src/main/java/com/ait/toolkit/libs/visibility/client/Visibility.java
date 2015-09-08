@@ -3,7 +3,7 @@ package com.ait.toolkit.libs.visibility.client;
 import com.ait.toolkit.core.client.Function;
 import com.ait.toolkit.core.client.Util;
 
-public final class Visibilty {
+public final class Visibility {
 
     static {
         Util.injectJs( VisibilityResource.INSTANCE.js() );
