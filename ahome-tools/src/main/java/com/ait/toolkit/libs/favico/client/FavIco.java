@@ -14,7 +14,7 @@ import com.google.gwt.user.client.ui.RootPanel;
 public final class FavIco extends JsObject {
 
     static {
-        Util.injectJs( FavIcoResources.INSTANCE.js() );
+        Util.injectJs( FavIcoResources.INSTANCE.jsMin() );
     }
 
     private FavIco( JavaScriptObject peer ) {

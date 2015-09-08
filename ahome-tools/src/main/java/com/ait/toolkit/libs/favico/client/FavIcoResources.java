@@ -10,4 +10,7 @@ public interface FavIcoResources extends ClientBundle {
 
     @Source( "lib.js" )
     public TextResource js();
+
+    @Source( "libMin.js" )
+    public TextResource jsMin();
 }
