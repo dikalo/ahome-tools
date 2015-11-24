@@ -5,9 +5,6 @@ import com.google.gwt.resources.client.TextResource;
 
 public interface NotyResources extends ClientBundle {
 
-	@Source("lib.js")
-	TextResource js();
-
-	@Source("btn.css")
-	TextResource buttonCss();
+    @Source( "lib.js" )
+    TextResource js();
 }
